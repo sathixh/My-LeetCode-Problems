@@ -1,0 +1,20 @@
+class Solution {
+    public boolean check(int[] nums) {
+        int count = 0; // Count the number of times the order is violated
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            // Compare current element with the next one (circular comparison)
+            if (nums[i] > nums[(i + 1) % n]) {
+                count++;
+            }
+
+            // If the order is violated more than once, it's not valid
+            if (count > 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
